@@ -1,0 +1,15 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
