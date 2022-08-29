@@ -1,83 +1,127 @@
-@import "https://fonts.googleapis.com/css?family=Open+Sans";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
+$bg-color: #2C3333;
+
+/* base styles */
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  margin: 0;
+  font-family: "Quicksand";
+  color: #F7F6DC;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.75em;
-  font-size: 16px;
-  background-color: #222;
-  color: #aaa;
+  background: $bg-color;
+  width: 100vw;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  top: 0;
 }
 
-p {
-  font-size: 16px;
-}
-
-h1 {
-  font-size: 30px;
-  line-height: 34px;
-}
-
-h2 {
-  font-size: 20px;
-  line-height: 25px;
-}
-
-h3 {
-  font-size: 16px;
-  line-height: 27px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #d8d8d8;
-  border-top: 1px solid #d8d8d8;
-}
-
-hr {
-  height: 1px;
-  background-color: #d8d8d8;
-  border: none;
+.navbar-container {
+  position: sticky;
   width: 100%;
-  margin: 0px;
+  background: 7FB77E;
+  top: 0;
 }
 
-a[href] {
-  color: #1e8ad6;
-}
-
-a[href]:hover {
-  color: #3ba0e6;
-}
-
-img {
-  max-width: 100%;
-}
-
-li {
-  line-height: 1.5em;
-}
-
-aside,
-[class*="sidebar"],
-[id*="sidebar"] {
-  max-width: 90%;
+.navbar {
+  padding: 0px;
+  display: flex;
+  align-items:center;
+  justify-content:space-around;
+  max-width: 600px;
   margin: 0 auto;
-  border: 1px solid lightgrey;
-  padding: 5px 15px;
+  border-bottom: 0px solid #f2f2f2;
 }
 
-@media (min-width: 1921px) {
-  body {
-    font-size: 18px;
-  }
+.navbar h1 {
+  color: #f2f2f2;
+}
+
+.navbar h1:hover {
+  color: #FFC090;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.navbar .links {
+  margin-left: auto;
+}
+
+.navbar .links:hover {
+  color: #FFC090;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.navbar h1::after {
+  position: absolute;
+	content: "";
+	width: 0%;
+	height: 4px;
+	background-color: whitesmoke;
+	left: 50%;
+	bottom: -10px;
+	transition: all 0.4s ease-in-out;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.navbar a:hover {
+  color: #e2e2e2;
 }
 
 .content {
-  padding-top: 20px;
-  width: 100%;
-  display: flex;
-  align-items: center;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
 }
+
+.addQuestion {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.addQuestion label {
+  text-align: left;
+  display: block;
+}
+
+.addQuestion h2 {
+  font-size: 20px;
+  color: #FFC090;
+  margin-bottom: 30px;
+}
+
+.addQuestion input, .addQuestion textarea, .addQuestion select, .addQuestion option {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border:1px solid #FFC090;
+  box-sizing:border-box;
+  display: block;
+  color: #449e44;
+}
+
+.addGame {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.addGame input, .addGame textarea, .addGame select, .addGame option, .addGame button {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border:1px solid #FFC090;
+  box-sizing:border-box;
+  display: block;
+  color: #449e44;
+}
+
+

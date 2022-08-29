@@ -1,15 +1,55 @@
 .navbar-container {
-  position: fixed;
-  top: 0;
-  width: 100%;
+  bottom: 70px;
+  background: #000;
 }
 
 .navbar {
   padding: 0px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items:center;
+  justify-content:space-around;
   max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 0px solid #f2f2f2;
+}
+
+.navbar h1 {
+  color: #f2f2f2;
+}
+
+.navbar h1:hover {
+  color: #FFC090;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.navbar .links {
+  margin-left: auto;
+}
+
+.navbar .links:hover {
+  color: #FFC090;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.navbar h1::after {
+  position: absolute;
+	content: "";
+	width: 0%;
+	height: 4px;
+	background-color: whitesmoke;
+	left: 50%;
+	bottom: -10px;
+	transition: all 0.4s ease-in-out;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.navbar a:hover {
+  color: #e2e2e2;
 }
