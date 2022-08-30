@@ -1,8 +1,14 @@
+$bg-color: #1a1f1f;
+$text-color: #c2fbd7;
+$dynamic-color-dark: #2cbb6366;
+$dynamic-color-light: #2cbb63c2;
+$links-color: #238172;
+
 .listItem {
     margin-top:  10px;
     margin-bottom: 10px;
     &:hover {
-        color: aqua;
+        color: $links-color;
     }
     
 }

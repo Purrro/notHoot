@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem/ListItem";
-import AddGame from "./AddGame/AddGame";
+import AddGame from "./AddGamePopup/AddGamePopup";
 
 const GamesList = ({ games, loading }) => {
   return loading ? (
@@ -9,11 +9,11 @@ const GamesList = ({ games, loading }) => {
     <div className="gameList">
       {games &&
         games.map((item) => {
-          return ({
+          return (
+          <div className="gameListPage">
             <ListItem item={item} />
-            <AddGame />
-        });
-        })}
+          </div>
+        )})}
     </div>
   );
 };

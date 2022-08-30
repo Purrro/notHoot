@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
-$bg-color: #2C3333;
+$bg-color: #1a1f1f;
+$text-color: #c2fbd7;
+$dynamic-color-dark: #2cbb6366;
+$dynamic-color-light: #2cbb63c2;
+$links-color: #238172;
 
 /* base styles */
 * {
   margin: 0;
   font-family: "Quicksand";
-  color: #F7F6DC;
+  color: $text-color;
 }
 
 body {
@@ -16,112 +20,42 @@ body {
   overflow-x: hidden;
   top: 0;
 }
-
-.navbar-container {
-  position: sticky;
-  width: 100%;
-  background: 7FB77E;
-  top: 0;
-}
-
-.navbar {
-  padding: 0px;
-  display: flex;
-  align-items:center;
-  justify-content:space-around;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 0px solid #f2f2f2;
-}
-
-.navbar h1 {
-  color: #f2f2f2;
-}
-
-.navbar h1:hover {
-  color: #FFC090;
-  cursor: pointer;
-  transition: 300ms ease-in-out;
-}
-
-.navbar .links {
-  margin-left: auto;
-}
-
-.navbar .links:hover {
-  color: #FFC090;
-  cursor: pointer;
-  transition: 300ms ease-in-out;
-}
-
-.navbar h1::after {
-  position: absolute;
-	content: "";
-	width: 0%;
-	height: 4px;
-	background-color: whitesmoke;
-	left: 50%;
-	bottom: -10px;
-	transition: all 0.4s ease-in-out;
-}
-
-.navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-}
-
-.navbar a:hover {
-  color: #e2e2e2;
-}
-
 .content {
   max-width: 600px;
   margin: 60px auto;
   padding: 20px;
 }
 
-.addQuestion {
-  max-width: 400px;
-  margin: 0 auto;
+button {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
+    sans-serif;
+  padding: 7px 20px;
   text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.addQuestion label {
-  text-align: left;
-  display: block;
+button:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-0.5deg);
 }
 
-.addQuestion h2 {
-  font-size: 20px;
-  color: #FFC090;
-  margin-bottom: 30px;
-}
-
-.addQuestion input, .addQuestion textarea, .addQuestion select, .addQuestion option {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border:1px solid #FFC090;
-  box-sizing:border-box;
-  display: block;
-  color: #449e44;
-}
-
-.addGame {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.addGame input, .addGame textarea, .addGame select, .addGame option, .addGame button {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border:1px solid #FFC090;
-  box-sizing:border-box;
-  display: block;
-  color: #449e44;
-}
 
 

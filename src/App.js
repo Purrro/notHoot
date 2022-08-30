@@ -16,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/game" element={<GamePage />} />
+            <Route path="/game/:id" element={<GamePage />} />
             <Route path="/login" element={<LogInPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
