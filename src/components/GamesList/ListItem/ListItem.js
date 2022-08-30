@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./ListItem.scss"
 
 const ListItem = ({item}) => {
   return (
     <div className="listItem" key={item.id}>
-      {item.name}
+      <Link to={`/game/${item.id}`} Component={[item.name, item.id]}> {item.name} </Link>
     </div>
   );
 };

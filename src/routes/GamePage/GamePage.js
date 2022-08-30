@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getGamesList, postAddGame } from "../../services/gameServices";
 import GamesList from "../../components/GamesList/GamesList";
-import "./GamePage.scss";
 import AddGamePopup from "../../components/GamesList/AddGamePopup/AddGamePopup";
+import "./GamePage.scss";
 
 const GamePage = () => {
   const [loading, setLoading] = useState(true);

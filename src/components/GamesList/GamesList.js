@@ -1,6 +1,5 @@
 import React from "react";
 import ListItem from "./ListItem/ListItem";
-import AddGame from "./AddGamePopup/AddGamePopup";
 
 const GamesList = ({ games, loading }) => {
   return loading ? (
