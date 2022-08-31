@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 import "./QuestionList.scss"
 
-const QuestionList = (item) => {
+const QuestionList = ({id, body}) => {
+
+  console.log(id);
   return (
-    <div className="listItem" key={item.id}>
-      <Link to={`/questions/${item.id}`}> {item.name} </Link>
+    <div className="listItem" key={id}>
+       {body}
     </div>
   )
 }

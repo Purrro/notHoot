@@ -11,14 +11,23 @@ export const getGamesList = async () => {
   }
 };
 
-export const getGameById = async (id) => {
+export const getGameDetails = async (gameId) => {
   try {
-    const res = await axios.get(`${serverAdress}/getgamebyid`, { id });
+    const res = await axios.get(`${serverAdress}/getgamedetails/${gameId}`);
     return res.data;
   } catch (e) {
     console.log(e);
   }
-}
+};
+
+export const getQuestions = async (gameID) => {
+  try {
+    const res = await axios.get(`${serverAdress}/getquestions/${gameID}`);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const postAddGame = async (name) => {
   try {
@@ -33,11 +42,14 @@ export const postAddGame = async (name) => {
 
 export const addNewQuestion = async (body, game_id) => {
   try {
-    const res = await axios.post(`${serverAdress}/createquestion`, { body, game_id });
+    const res = await axios.post(`${serverAdress}/createquestion`, {
+      body,
+      game_id,
+    });
     return res.data.insertId;
   } catch (e) {
     console.log(e);
   }
-}
+};
 
 //        Create new answer with { body, iscorrect, question_id }
