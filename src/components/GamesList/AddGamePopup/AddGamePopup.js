@@ -3,6 +3,7 @@ import "./AddGamePopup.scss";
 
 const AddGamePopup = ({ onClose, onAddGame }) => {
   const [gameName, setGameName] = useState("");
+  
   const handleAddGameEvent = () => {
     if (gameName.length) {
       setIsInputFieldNull(false);

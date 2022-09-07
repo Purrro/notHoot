@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { getQuestions, getGameDetails } from "../../services/gameServices";
+import { getQuestions, getGameDetails, postNewQuestion } from "../../services/gameServices";
 import AddQuestion from "./AddQuestion/AddQuestion";
 import QuestionList from "./QuestionList/QuestionList";
+
+
 
 const EditGameByID = () => {
   const [loading, setLoading] = useState(true);
@@ -12,6 +14,8 @@ const EditGameByID = () => {
 
   const { id } = useParams();
 
+  const [isAddQuestionPressed, setIsAddQuestionPressed] = useState(false);
+
   const getAllGameDetails = async () => {
     const details = await getGameDetails(id);
     const questions = await getQuestions(id);
@@ -19,6 +23,13 @@ const EditGameByID = () => {
     setGameQuestions(questions);
     setLoading(false);
   };
+
+  const addNewQuestion = async (questionBody) => {
+    setLoading(true);
+    await postNewQuestion(questionBody, id);
+    getAllGameDetails();
+  }
+
   useEffect(() => {
     getAllGameDetails();
   }, []);
@@ -36,6 +47,14 @@ const EditGameByID = () => {
             </div>
           );
         })}
+        <button onClick={ () => setIsAddQuestionPressed(true)}>Add a Question</button>
+        {isAddQuestionPressed && (
+          <div>
+            <AddQuestion 
+              postNewQuestion = {addNewQuestion}
+              isAddQuestionPressed = { () => setIsAddQuestionPressed(false)} />
+          </div>
+      )}
     </div>
   );
 };

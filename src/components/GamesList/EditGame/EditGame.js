@@ -26,7 +26,9 @@ const EditGame = (gameId, gameName) => {
   return (
     <div>
       <h2>{gameId}</h2>
-      {/* <AddQuestion gameId={gameId} /> */}
+      <button>a button</button>
+      <AddQuestion gameId={gameId} />
+      
     </div>
   )
 }
