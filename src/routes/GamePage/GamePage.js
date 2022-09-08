@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { getGamesList, postAddGame } from "../../services/gameServices";
 import GamesList from "../../components/GamesList/GamesList";
 import AddGamePopup from "../../components/GamesList/AddGamePopup/AddGamePopup";
-
+import { useNavigate } from 'react-router-dom';
 import "./GamePage.scss";
 
 const GamePage = () => {
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const getGames = async () => {
     setGames(await getGamesList());
@@ -17,8 +19,8 @@ const GamePage = () => {
 
   const onAddGame = async (gameName) => {
     const id = await postAddGame(gameName);
-    getGames();
-
+    await getGames();
+    navigate(`../game/${id}`);
   };
 
   useEffect(() => {

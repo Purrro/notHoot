@@ -1,0 +1,34 @@
+.listItem {
+    margin: 16px;
+    font-size: large;
+    border: 1px solid #238172;
+    border-radius: 16px;
+    padding: 12px;
+    
+    .listItemContent {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    &:hover {
+        .listItemIcons {
+            display: block;
+        }
+    }
+
+    .listItemIcons {
+        display: none;
+        padding-right: 4px;
+        font-size: large;
+
+        .anticon {
+            margin-left: 8px;
+            cursor: pointer;
+            &:hover {
+                > svg > path {
+                    color:#238172;
+                }
+            }
+        }
+    }
+}

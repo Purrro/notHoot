@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { getQuestions, getGameDetails, postNewQuestion } from "../../services/gameServices";
+import {
+  getQuestions,
+  getGameDetails,
+  postNewQuestion,
+} from "../../services/gameServices";
 import AddQuestion from "./AddQuestion/AddQuestion";
 import QuestionList from "./QuestionList/QuestionList";
-
-
 
 const EditGameByID = () => {
   const [loading, setLoading] = useState(true);
@@ -28,9 +30,10 @@ const EditGameByID = () => {
     setLoading(true);
     await postNewQuestion(questionBody, id);
     getAllGameDetails();
-  }
+  };
 
   useEffect(() => {
+    console.log("useEffect entered");
     getAllGameDetails();
   }, []);
 
@@ -47,13 +50,19 @@ const EditGameByID = () => {
             </div>
           );
         })}
-        <button onClick={ () => setIsAddQuestionPressed(true)}>Add a Question</button>
-        {isAddQuestionPressed && (
-          <div>
-            <AddQuestion 
-              postNewQuestion = {addNewQuestion}
-              isAddQuestionPressed = { () => setIsAddQuestionPressed(false)} />
-          </div>
+
+      {isAddQuestionPressed ? (
+        <div>
+          <AddQuestion
+            postNewQuestion={addNewQuestion}
+            isAddQuestionPressed={() => setIsAddQuestionPressed(false)}
+          />
+          
+        </div>
+      ) : (
+        <button onClick={() => setIsAddQuestionPressed(true)}>
+          Add a Question
+        </button>
       )}
     </div>
   );

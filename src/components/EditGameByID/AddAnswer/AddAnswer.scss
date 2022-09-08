@@ -1,0 +1,32 @@
+.RadioGroup {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    font-size: small;
+    justify-content: center;
+    align-items: center;
+
+    .ant-radio-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        > span:nth-child(2){
+            width: 80%;
+        }
+    }
+
+    .textInput {
+        width: 100%;
+        color: #1a1f1f;
+        border: none;
+        box-sizing: border-box;
+        height: 36px;
+        margin: 16px 0 16px 16px;
+        border-radius: 5px;
+
+        
+    }
+    }
