@@ -29,6 +29,15 @@ export const getQuestions = async (gameID) => {
   }
 };
 
+export const getAnswers = async (questionId) => {
+  try {
+    const res = await axios.get(`${serverAdress}/getanswers/${questionId}`);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const postAddGame = async (name) => {
   try {
     const res = await axios.post(`${serverAdress}/creategame`, { name });
@@ -41,9 +50,9 @@ export const postAddGame = async (name) => {
 // Create a new question with { body, game_id }
 export const postNewQuestion = async (body, game_id) => {
   try {
-    const res = await axios.post(`${serverAdress}/createquestion`,{
+    const res = await axios.post(`${serverAdress}/createquestion`, {
       body,
-      game_id
+      game_id,
     });
     return res.data.insertId;
   } catch (e) {
@@ -52,14 +61,14 @@ export const postNewQuestion = async (body, game_id) => {
 };
 
 // Create new answer with { body, iscorrect, question_id }
-export const postNewAnswer = async (body, iscorrect, question_id) => {
+export const postAnswers = async (body, iscorrect, questionId) => {
   try {
-    const res = await axios.post(`${serverAdress}/createanswer`, {
+    const res = await axios.post(`${serverAdress}/createanswers`, {
       body,
       iscorrect,
-      question_id,
+      questionId,
     });
-    return res.data.insertId;
+    return res.data;
   } catch (e) {
     console.log(e);
   }

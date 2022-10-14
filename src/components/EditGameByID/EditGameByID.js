@@ -4,6 +4,8 @@ import {
   getQuestions,
   getGameDetails,
   postNewQuestion,
+  postAnswers,
+  getAnswers,
 } from "../../services/gameServices";
 import AddQuestion from "./AddQuestion/AddQuestion";
 import QuestionList from "./QuestionList/QuestionList";
@@ -32,8 +34,18 @@ const EditGameByID = () => {
     getAllGameDetails();
   };
 
+  const addAnswers = async (answers, isCorrect, questionId) => {
+    setLoading(true);
+    await postAnswers(answers, isCorrect, questionId);
+    getAllGameDetails();
+  };
+
+  const getAllAnswers = async (questionId) => {
+    const answers = await getAnswers(questionId);
+    return answers;
+  };
+
   useEffect(() => {
-    console.log("useEffect entered");
     getAllGameDetails();
   }, []);
 
@@ -45,8 +57,12 @@ const EditGameByID = () => {
       {gameQuestions &&
         gameQuestions.map((item) => {
           return (
-            <div className="questionsPage">
-              <QuestionList {...item} />
+            <div className="questionsPage" key={item.id}>
+              <QuestionList
+                {...item}
+                postAnswers={addAnswers}
+                getAllAnswers={getAllAnswers}
+              />
             </div>
           );
         })}
@@ -57,7 +73,6 @@ const EditGameByID = () => {
             postNewQuestion={addNewQuestion}
             isAddQuestionPressed={() => setIsAddQuestionPressed(false)}
           />
-          
         </div>
       ) : (
         <button onClick={() => setIsAddQuestionPressed(true)}>

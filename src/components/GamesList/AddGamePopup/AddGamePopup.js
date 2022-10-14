@@ -3,14 +3,13 @@ import "./AddGamePopup.scss";
 
 const AddGamePopup = ({ onClose, onAddGame }) => {
   const [gameName, setGameName] = useState("");
-  
+
   const handleAddGameEvent = () => {
     if (gameName.length) {
       setIsInputFieldNull(false);
       onAddGame(gameName);
       onClose();
-    }
-    else {
+    } else {
       setIsInputFieldNull(true);
     }
   };
@@ -28,7 +27,11 @@ const AddGamePopup = ({ onClose, onAddGame }) => {
           X
         </button>
         <h2>Create new game</h2>
-        {isInputFieldNull && <div className="inputFieldEmptyPrompt">Game name can not be empty</div>}
+        {isInputFieldNull && (
+          <div className="inputFieldEmptyPrompt">
+            Game name can not be empty
+          </div>
+        )}
         <input
           className="popupInputText"
           type={"text"}
@@ -37,9 +40,8 @@ const AddGamePopup = ({ onClose, onAddGame }) => {
           onChange={(e) => {
             setGameName(e.target.value);
           }}
-          onKeyDown= { (e) => {
-            if(e.keyCode === 13)
-              handleAddGameEvent();
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) handleAddGameEvent();
           }}
         />
         <button className="button-addGame" onClick={handleAddGameEvent}>
