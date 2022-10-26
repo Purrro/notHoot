@@ -4,22 +4,19 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import AddAnswer from "../AddAnswer/AddAnswer";
 
 const QuestionList = ({ id, body, postAnswers, getAllAnswers }) => {
-  const [isEditButtonPressed, setIsEditButtonPressed] = useState(false);
-  const [correctAnswerIndex, setCorrectAnswerIndex] = useState(0);
-  const [answersArray, setAnswersArray] = useState([]);
+  const [isEditButtonPressed, setIsEditButtonPressed] = useState(true);
 
   const handleAnswersSubmit = (
     answerOne,
     answerTwo,
     answerThree,
     answerFour,
-    value
+    isCorrect
   ) => {
-    // setAnswersArray([answerOne, answerTwo, answerThree, answerFour]);
-    setCorrectAnswerIndex(value);
+    console.log("QuestionList.js : " + isCorrect)
     postAnswers(
       [answerOne, answerTwo, answerThree, answerFour],
-      correctAnswerIndex,
+      isCorrect,
       id
     );
     setIsEditButtonPressed(false);

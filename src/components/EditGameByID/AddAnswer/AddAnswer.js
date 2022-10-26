@@ -11,37 +11,56 @@ const AddAnswer = ({ handleAnswersSubmit, getAllAnswers, questionId }) => {
   const [answerThree, setAnswerThree] = useState("");
   const [answerFour, setAnswerFour] = useState("");
 
+  const [arrayOfAnswers, setArrayOfAnswers] = useState([]);
+
+  const [isHaveAnswers, setIsHaveAnswers] = useState(false);
+
   const onChange = (e) => {
     setValue(e.target.value);
   };
 
   const handleAddAnswersButton = () => {
+    console.log(value);
     handleAnswersSubmit(answerOne, answerTwo, answerThree, answerFour, value);
   };
 
   const checkIfAnswers = async () => {
     const answers = await getAllAnswers(questionId);
-    if (answers) {
-      setAnswerOne(answers[0].body);
-      setAnswerTwo(answers[1].body);
-      setAnswerThree(answers[2].body);
-      setAnswerFour(answers[3].body);
-
-      for (let i = 0; i < 4; i++) {
-        if (answers[i].iscorrect === 1) {
-          setValue(i);
-        }
-      }
-    }
-
     console.log(answers);
+    if (answers.length) {
+      setArrayOfAnswers(answers);
+      
+      const correctAnswerIndex = answers.findIndex(
+        (answer) => !!answer.iscorrect
+      );
+      setValue(correctAnswerIndex);
+
+      setIsHaveAnswers(true);
+    } else {
+      setIsHaveAnswers(false);
+    }
   };
 
   useEffect(() => {
     checkIfAnswers();
   }, []);
 
-  return (
+  return isHaveAnswers ? (
+    <div className="Answers">
+      {arrayOfAnswers.map(({ id, body }, index) => {
+        return (
+          <div
+            className={
+              index === value ? "correctAnswerClass" : "wrongAnswerClass"
+            }
+            key={id}
+          >
+            <div className="AnswerText">{body}</div>
+          </div>
+        );
+      })}
+    </div>
+  ) : (
     <div>
       <Radio.Group className="RadioGroup" onChange={onChange} value={value}>
         <Radio value={0}>

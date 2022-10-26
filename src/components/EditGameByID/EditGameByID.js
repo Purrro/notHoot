@@ -36,6 +36,7 @@ const EditGameByID = () => {
 
   const addAnswers = async (answers, isCorrect, questionId) => {
     setLoading(true);
+    console.log("EditGameByID : " + answers, isCorrect, questionId)
     await postAnswers(answers, isCorrect, questionId);
     getAllGameDetails();
   };

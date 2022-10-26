@@ -61,11 +61,14 @@ export const postNewQuestion = async (body, game_id) => {
 };
 
 // Create new answer with { body, iscorrect, question_id }
-export const postAnswers = async (body, iscorrect, questionId) => {
+export const postAnswers = async (body, isCorrect, questionId) => {
+
+  console.log("GameServices: " + body, isCorrect, questionId)
+
   try {
     const res = await axios.post(`${serverAdress}/createanswers`, {
       body,
-      iscorrect,
+      isCorrect,
       questionId,
     });
     return res.data;
