@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./QuestionList.scss";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import AddAnswer from "../AddAnswer/AddAnswer";
 
-const QuestionList = ({ id, body, postAnswers, getAllAnswers }) => {
-  const [isEditButtonPressed, setIsEditButtonPressed] = useState(true);
+const QuestionList = ({ id, body, postAnswers, getAllAnswers, removeQuestion }) => {
+  const [isEditButtonPressed, setIsEditButtonPressed] = useState(false);
+
+  
 
   const handleAnswersSubmit = (
     answerOne,
@@ -13,14 +15,13 @@ const QuestionList = ({ id, body, postAnswers, getAllAnswers }) => {
     answerFour,
     isCorrect
   ) => {
-    console.log("QuestionList.js : " + isCorrect)
-    postAnswers(
-      [answerOne, answerTwo, answerThree, answerFour],
-      isCorrect,
-      id
-    );
+    postAnswers([answerOne, answerTwo, answerThree, answerFour], isCorrect, id);
     setIsEditButtonPressed(false);
   };
+
+  useEffect (() => {
+    console.log("UseEffect : " + isEditButtonPressed)
+  }, [isEditButtonPressed])
 
   return (
     <div className="listItem" key={id}>
@@ -33,14 +34,22 @@ const QuestionList = ({ id, body, postAnswers, getAllAnswers }) => {
               setIsEditButtonPressed(true);
             }}
           />
-          <DeleteOutlined />
+          <DeleteOutlined
+          onClick={() => {
+            removeQuestion(id)
+          }} />
         </div>
       </div>
       <div>
-        {isEditButtonPressed && (
-          <AddAnswer handleAnswersSubmit={handleAnswersSubmit} getAllAnswers={getAllAnswers} questionId={id} />
-        )}
+        <AddAnswer
+          handleAnswersSubmit={handleAnswersSubmit}
+          getAllAnswers={getAllAnswers}
+          questionId={id}
+          isEditButtonPressed={isEditButtonPressed}
+        />
       </div>
+     
+      
     </div>
   );
 };

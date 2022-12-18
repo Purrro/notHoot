@@ -1,7 +1,8 @@
 import React from "react";
 import ListItem from "./ListItem/ListItem";
 
-const GamesList = ({ games, loading }) => {
+
+const GamesList = ({ games, loading, removeGame }) => {
   return loading ? (
     <div>Loading</div>
   ) : (
@@ -10,7 +11,7 @@ const GamesList = ({ games, loading }) => {
         games.map((item) => {
           return (
           <div className="gameListPage">
-            <ListItem item={item} />
+            <ListItem item={item} removeGame={removeGame} />
           </div>
         )})}
     </div>

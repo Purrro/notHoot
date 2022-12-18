@@ -6,6 +6,7 @@ import {
   postNewQuestion,
   postAnswers,
   getAnswers,
+  removeQuestion,
 } from "../../services/gameServices";
 import AddQuestion from "./AddQuestion/AddQuestion";
 import QuestionList from "./QuestionList/QuestionList";
@@ -46,6 +47,12 @@ const EditGameByID = () => {
     return answers;
   };
 
+  const removeQuestionFromGame = async (questionId) => {
+    setLoading(true);
+    await removeQuestion(questionId);
+    getAllGameDetails();
+  }
+
   useEffect(() => {
     getAllGameDetails();
   }, []);
@@ -63,6 +70,7 @@ const EditGameByID = () => {
                 {...item}
                 postAnswers={addAnswers}
                 getAllAnswers={getAllAnswers}
+                removeQuestion={removeQuestionFromGame}
               />
             </div>
           );

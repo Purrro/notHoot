@@ -62,14 +62,37 @@ export const postNewQuestion = async (body, game_id) => {
 
 // Create new answer with { body, iscorrect, question_id }
 export const postAnswers = async (body, isCorrect, questionId) => {
-
-  console.log("GameServices: " + body, isCorrect, questionId)
+  console.log("GameServices: " + body, isCorrect, questionId);
 
   try {
     const res = await axios.post(`${serverAdress}/createanswers`, {
       body,
       isCorrect,
       questionId,
+    });
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+// Remove Question
+export const removeQuestion = async (questionId) => {
+  try {
+    const res = await axios.post(`${serverAdress}/deletequestion`, {
+      questionId,
+    });
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+// Remove Game
+export const deleteGame = async (gameId) => {
+  try {
+    const res = await axios.post(`${serverAdress}/deletegame`, {
+      gameId,
     });
     return res.data;
   } catch (e) {

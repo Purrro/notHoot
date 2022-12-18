@@ -3,7 +3,12 @@ import { Radio } from "antd";
 import { useState } from "react";
 import "./AddAnswer.scss";
 
-const AddAnswer = ({ handleAnswersSubmit, getAllAnswers, questionId }) => {
+const AddAnswer = ({
+  handleAnswersSubmit,
+  getAllAnswers,
+  questionId,
+  isEditButtonPressed,
+}) => {
   const [value, setValue] = useState(0);
 
   const [answerOne, setAnswerOne] = useState("");
@@ -26,10 +31,13 @@ const AddAnswer = ({ handleAnswersSubmit, getAllAnswers, questionId }) => {
 
   const checkIfAnswers = async () => {
     const answers = await getAllAnswers(questionId);
-    console.log(answers);
     if (answers.length) {
       setArrayOfAnswers(answers);
-      
+      setAnswerOne(answers[0].body);
+      setAnswerTwo(answers[1].body);
+      setAnswerThree(answers[2].body);
+      setAnswerFour(answers[3].body);
+
       const correctAnswerIndex = answers.findIndex(
         (answer) => !!answer.iscorrect
       );
@@ -45,7 +53,11 @@ const AddAnswer = ({ handleAnswersSubmit, getAllAnswers, questionId }) => {
     checkIfAnswers();
   }, []);
 
-  return isHaveAnswers ? (
+  useEffect(() => {
+    checkIfAnswers();
+  }, [isEditButtonPressed]);
+
+  return isHaveAnswers && !isEditButtonPressed ? (
     <div className="Answers">
       {arrayOfAnswers.map(({ id, body }, index) => {
         return (
