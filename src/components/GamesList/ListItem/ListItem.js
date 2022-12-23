@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined, CaretRightOutlined } from "@ant-design/icons";
 
 import "./ListItem.scss";
 
@@ -10,6 +10,8 @@ const ListItem = ({ item, removeGame }) => {
       <div className="gameListItemContent">
         <Link to={`/game/${item.id}`}> {item.name} </Link>
         <div className="gameListItemIcons">
+        <Link to={`/game/play/${item.id}`}>  <CaretRightOutlined /> </Link>
+         
           <DeleteOutlined
             onClick={() => {
               removeGame(item.id);

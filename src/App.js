@@ -3,6 +3,7 @@ import Home from "./routes/Home/Home";
 import GamePage from "./routes/GamePage/GamePage";
 import EditGameByID from "./components/EditGameByID/EditGameByID";
 import EditGame from "./components/GamesList/EditGame/EditGame";
+import PlayGameByID from "./components/PlayGameByID/PlayGameByID";
 import LogInPage from "./routes/LogInPage/LogInPage";
 import PageNotFound from "./routes/PageNotFound/PageNotFound";
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/game" element={<GamePage />} />
             <Route path="/game/:id" element={<EditGameByID />} />
+            <Route path="/game/play/:id" element={<PlayGameByID />} />
             <Route path="/game/create/:id" element={<EditGame />} />
             <Route path="/login" element={<LogInPage />} />
             <Route path="*" element={<PageNotFound />} />
