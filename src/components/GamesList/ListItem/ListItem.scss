@@ -1,13 +1,18 @@
 .gameListItem {
     margin: 16px;
     font-size: large;
-    border: 1px solid #238172;
+    border: 1px solid #734FBC;
     border-radius: 16px;
     padding: 12px;
+    max-width: 100%;
+    justify-content: space-around;
+    align-items: space-around;
+    align-content: space-around;
+    display: flexbox;
     
     .gameListItemContent {
         display: flex;
-        justify-content: space-between;
+        justify-content:space-between;
     }
     
     &:hover {

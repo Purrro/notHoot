@@ -1,10 +1,18 @@
-$bg-color: #1a1f1f;
-$text-color: #c2fbd7;
-$dynamic-color-dark: #2cbb6366;
-$dynamic-color-light: #2cbb63c2;
-$links-color: #238172;
+// $bg-color: #1a1f1f;
+// $text-color: #c2fbd7;
+// $dynamic-color-dark: #2cbb6366;
+// $dynamic-color-light: #2cbb63c2;
+// $links-color: #238172;
 
+$bg-color: #706c61;
+$text-color: #edf6f9;
+$dynamic-color-dark: #734FBC;
+$dynamic-color-light: #717568;
+$links-color: #706c61;
 
+* {
+  color: $text-color
+}
 .navbar-container {
   bottom: 70px;
   background: $dynamic-color-dark;
@@ -13,12 +21,13 @@ $links-color: #238172;
 
 .navbar {
   padding: 0px;
-  display: flex;
+  display:flex;
   align-items:center;
   justify-content:space-around;
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
   border-bottom: 0px solid $text-color;
+  color: #EDF6F9;
 }
 
 .navbar h1 {
@@ -26,20 +35,21 @@ $links-color: #238172;
 }
 
 .navbar h1:hover {
-    box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
-      rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
-      rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
-      rgba(44, 187, 99, 0.25) 0 16px 32px;
-    transform: scale(1.05) rotate(-1.5deg);
+    box-shadow: #734FBC 0 -12px 9px -14px inset,
+    #734FBC 0 1px 2px, #734FBC 0 2px 4px,
+    #734FBC 0 4px 8px, #734FBC 0 8px 16px,
+      #734FBC 0 16px 32px;
+    transform: scale(1.05);
     transition: 150ms ease-in-out;
 }
 
 .navbar .links {
+  color: $text-color;
   margin-left: auto;
 }
 
 .navbar .links:hover {
-  color: $links-color;
+  color: $text-color;
   cursor: pointer;
   transition: 300ms ease-in-out;
 }
@@ -59,6 +69,7 @@ $links-color: #238172;
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
+  color: $text-color
 }
 
 .navbar a:hover {

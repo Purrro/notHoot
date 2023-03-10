@@ -1,5 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem/ListItem";
+import "./GamesList.scss";
 
 
 const GamesList = ({ games, loading, removeGame }) => {

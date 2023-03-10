@@ -1,6 +1,6 @@
-$bg-color: #1a1f1f;
+$bg-color: #211636;
 $text-color: #c2fbd7;
-$dynamic-color-dark: #2cbb6366;
+$dynamic-color-dark: #734FBC;
 $dynamic-color-light: #2cbb63c2;
 $links-color: #238172;
 
@@ -21,12 +21,14 @@ $links-color: #238172;
     position: relative;
     bottom: 25%;
     padding: 16px;
-    border-radius: 5px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     > * {
       width: 100%;
     }
+
+
 
     .inputFieldEmptyPrompt {
         display: block;
